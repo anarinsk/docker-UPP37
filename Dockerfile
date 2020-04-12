@@ -2,9 +2,7 @@
 FROM ubuntu:18.04
 
   # apt update & upgrade 
-  RUN apt-get update 
-  RUN apt-get upgrade -y 
-  RUN apt-get install -y wget
+  RUN apt-get update && apt-get upgrade -y && apt-get install -y wget
   
   # Change mirror 
   # RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list && sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list && sed -i 's/extras.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
@@ -13,11 +11,7 @@ FROM ubuntu:18.04
   RUN apt-get update && apt-get upgrade -y && apt-get install -y wget
 
 # Installing python
-  RUN apt-get update 
-  RUN apt-get install -y software-properties-common 
-  RUN add-apt-repository ppa:deadsnakes/ppa 
-  RUN apt-get update && apt-get install -y python3.7 
-  RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
+  RUN apt-get update && apt-get install -y software-properties-common && add-apt-repository ppa:deadsnakes/ppa && apt-get update && apt-get install -y python3.7 && update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
 
   # Installing pip
   RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && rm get-pip.py
