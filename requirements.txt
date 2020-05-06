@@ -1,2 +1,3 @@
 pylint>=2.5.0
 datascience>=0.15.4
+jupyter>=1.0.0
